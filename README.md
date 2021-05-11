@@ -1,5 +1,5 @@
 # planet-age-calculator
-Calculates your age based on another planet based on the duration of the planet's revolution around the sun.
+Calculates your age on another planet.
 
 The purpose of this project is to just get familiar with using git and github.
 
