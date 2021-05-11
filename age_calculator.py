@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timedelta
 import re
 
 planet_dict = {
@@ -19,7 +19,10 @@ def name_prompt():
 
 def validate_birthday(x):
 	birthdate_regex = re.compile(r'\d\d\/\d\d\/\d\d\d\d')
-	return birthdate_regex.search(x)		
+	return birthdate_regex.search(x)
+
+def get_time_delta(bdate):
+	
 
 def run():
 	name = name_prompt()
