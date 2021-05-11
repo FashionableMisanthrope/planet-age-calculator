@@ -36,6 +36,8 @@ def age_tabulator(days):
 	for k, v in planet_dict.items():
 		planet_age = age_math(days, v)
 		results.append([k, planet_age])
+
+	return results
 	
 def age_math(aDays, pDays):
 	return aDays / pDays
@@ -54,4 +56,4 @@ def run():
 	results = age_tabulator(days_alive)
 	
 	for r in results:
-		print(f'Your age on {r[0]} is {r[1]} year(s).')
+		print(f'Your age on {r[0].upper()} is {round(r[1], 2)} year(s).')
