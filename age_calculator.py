@@ -1,16 +1,6 @@
 from datetime import datetime, timedelta
 import re
 
-planet_dict = {
-	'mercury': 88,
-	'venus': 225,
-	'mars': 687,
-	'jupiter': 4333,
-	'saturn': 10759,
-	'uranus': 30687,
-	'neptune': 60190
-}
-
 def birthdate_prompt():
 	return str(input('What is your birthdate? Use (mm/dd/yyyy)\n'))
 
@@ -30,6 +20,26 @@ def get_days_alive_from_time_delta(bdate):
 	days_alive = today - bdate_obj
 	return days_alive.days
 
+def age_tabulator(days):
+	results = []
+	
+	planet_dict = {
+		'mercury': 88,
+		'venus': 225,
+		'mars': 687,
+		'jupiter': 4333,
+		'saturn': 10759,
+		'uranus': 30687,
+		'neptune': 60190
+	}
+	
+	for k, v in planet_dict.items():
+		planet_age = age_math(days, v)
+		results.append([k, planet_age])
+	
+def age_math(aDays, pDays):
+	return aDays / pDays
+
 def run():
 	name = name_prompt()
 	while True:
@@ -41,3 +51,7 @@ def run():
 			break
 
 	days_alive = get_days_alive_from_time_delta(b_day)
+	results = age_tabulator(days_alive)
+	
+	for r in results:
+		print(f'Your age on {r[0]} is {r[1]} year(s).')
