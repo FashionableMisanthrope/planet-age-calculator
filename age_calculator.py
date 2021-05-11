@@ -22,6 +22,10 @@ def validate_birthday(x):
 	return birthdate_regex.search(x)
 
 def get_time_delta(bdate):
+	bdate_obj = datetime.strptime(bdate, '%m%m/%d%d/%Y%Y%Y%Y')
+	today = datetime.now()
+	time_alive = today - bdate_obj
+	print(time_alive')
 	
 
 def run():
