@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timedelta
 import re
 
 planet_dict = {
@@ -19,7 +19,16 @@ def name_prompt():
 
 def validate_birthday(x):
 	birthdate_regex = re.compile(r'\d\d\/\d\d\/\d\d\d\d')
-	return birthdate_regex.search(x)		
+	return birthdate_regex.search(x)
+
+def get_days_alive_from_time_delta(bdate):
+	month = int(bdate.split('/')[0])
+	day = int(bdate.split('/')[1])
+	year = int(bdate.split('/')[2])
+	bdate_obj = datetime(year, month, day)
+	today = datetime.now()
+	days_alive = today - bdate_obj
+	return days_alive.days
 
 def run():
 	name = name_prompt()
@@ -30,3 +39,5 @@ def run():
 		else:
 			print(f'Thank you, {name}!')
 			break
+
+	days_alive = get_days_alive_from_time_delta(b_day)
